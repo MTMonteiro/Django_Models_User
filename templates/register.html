@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+         {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <div class="form-signin alert alert-primary" role="alert">
+                    <li>{{ message }}</li>
+                </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    <form class="form-signin" action="" method="post" autocomplete="on">
+        {% csrf_token %}
+        <img class="mb-4" src="http://www.favicon.pro/favicon/9905box_color.ico" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal"> Informe seus dados</h1>
+
+            <label class="sr-only" for="id_username">Username/E-mail:</label>
+            <input class="form-control" placeholder="Informe seu e-mail" required autofocus type="text" name="username" maxlength="150" required="" id="id_username">
+            <br>
+            <span class="helptext">Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_ apenas.</span>
+
+            <label class="sr-only" for="id_first_name">Primeiro nome:</label>
+            <input class="form-control" placeholder="Nome" type="text" name="first_name" maxlength="30" id="id_first_name">
+
+            <label class="sr-only" for="id_last_name">Último nome:</label>
+            <input class="form-control" placeholder="Sobrenome" type="text" name="last_name" maxlength="150" id="id_last_name">
+
+            <label class="sr-only" for="id_password1">Senha:</label>
+            <input class="form-control" placeholder="Informe sua senha" required type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            <br>
+            <span class="helptext">
+                <ul>
+                    <li>Sua senha não pode ser muito parecida com o resto das suas informações pessoais.</li>
+                    <li>Sua senha precisa conter pelo menos 8 caracteres.</li>
+                    <li>Sua senha não pode ser uma senha comumente utilizada.</li>
+                    <li>Sua senha não pode ser inteiramente numérica.</li>
+                </ul>
+            </span>
+
+            <label class="sr-only" for="id_password2">Confirmação de senha:</label>
+            <input class="form-control" placeholder="Confirme sua senha" required type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            <br>
+            <span class="helptext">Informe a mesma senha informada anteriormente, para verificação.</span>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Criar Conta</button>
+        <p class="mt-5 mb-3 text-muted">© 2020</p>
+
+    </form>
+<!--
+        <label for="username" class="sr-only">E-mail</label>
+        <input type="email" id="username" name="username" class="form-control" placeholder="Informe seu e-mail" required autofocus>
+
+
+        <label for="id_password1" class="sr-only">Senha</label>
+        <input type="password" id="id_password1" name="password1" class="form-control" placeholder="Informe sua senha" required>
+        <label for="id_password2" class="sr-only">Confirme sua senha</label>
+        <input type="password" id="id_password2" name="password2" class="form-control" placeholder="Confirme sua senha" required>
+-->
+
+{% endblock %}
